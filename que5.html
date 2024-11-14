@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client-Side Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .error { color: red; display: none; }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="textField">Enter Text:</label>
+        <input type="text" id="textField">
+        <span class="error" id="errorText">This field cannot be empty</span><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $('#myForm').on('submit', function(event) {
+            const text = $('#textField').val();
+            if (!text) {
+                event.preventDefault(); // Prevent form submission
+                $('#errorText').show();
+            } else {
+                $('#errorText').hide();
+            }
+        });
+    </script>
+</body>
+</html>

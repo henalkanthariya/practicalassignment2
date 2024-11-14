@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slider</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="slider">
+        <img id="sliderImage" src="image1.jpg" alt="Image 1" width="300" height="200">
+    </div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+
+    <script>
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+        let currentIndex = 0;
+
+        $('#next').on('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            $('#sliderImage').attr('src', images[currentIndex]);
+        });
+
+        $('#prev').on('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            $('#sliderImage').attr('src', images[currentIndex]);
+        });
+    </script>
+</body>
+</html>

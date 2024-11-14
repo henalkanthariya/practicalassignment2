@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toggle Div Visibility</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="toggleButton">Toggle Div</button>
+    <div id="myDiv" style="display: none;">Hello, I am a toggled div!</div>
+
+    <script>
+        $('#toggleButton').on('click', function() {
+            $('#myDiv').toggle(); // Toggles visibility
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>State and City Dropdown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <label for="state">State:</label>
+    <select id="state">
+        <option value="">Select a State</option>
+        <option value="california">California</option>
+        <option value="texas">Texas</option>
+        <option value="florida">Florida</option>
+    </select>
+
+    <label for="city">City:</label>
+    <select id="city">
+        <option value="">Select a City</option>
+    </select>
+
+    <script>
+        const citiesByState = {
+            california: ["Los Angeles", "San Francisco", "San Diego"],
+            texas: ["Houston", "Austin", "Dallas"],
+            florida: ["Miami", "Orlando", "Tampa"]
+        };
+
+        $('#state').on('change', function() {
+            const selectedState = $(this).val();
+            const cities = citiesByState[selectedState] || [];
+            $('#city').empty().append('<option value="">Select a City</option>');
+            cities.forEach(city => {
+                $('#city').append(`<option value="${city.toLowerCase()}">${city}</option>`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#myForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                const name = $('#name').val();
+                const email = $('#email').val();
+
+                if (!name) {
+                    alert('Name is required');
+                    return;
+                }
+                if (!email) {
+                    alert('Email is required');
+                    return;
+                }
+                alert(`Name: ${name}, Email: ${email}`);
+            });
+        });
+    </script>
+</body>
+</html>
